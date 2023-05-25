@@ -7,19 +7,27 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MyConfigurationBean {
     @Bean
-    public MyBean beanOperation(){
-
+    public MyBean beanOperation() {
         return new MyBean2Implement();
     }
 
     @Bean
-    public MyOperation beanOperationGenerate(){
-
+    public MyOperation beanOperationGenerate() {
         return new MyOperationImplement();
     }
 
     @Bean
-    public MyBeanGenerateOperation beanOperationGenerateDependency(MyOperation myOperation){
+    public MyBeanGenerateOperation beanOperationGenerateDependency(MyOperation myOperation) {
         return new MyBeanGenerateOperationImpement(myOperation);
     }
+
+    @Bean
+    public MyBeanResta beanOperationRestaGenerate() {
+        return new MyBeanRestaImplement();
+    }
+    @Bean
+    public MyBeanRestaOperation beanOperationRestaDependecy(MyBeanResta myBeanResta){
+        return new MyBeanRestaOperationImplement(myBeanResta);
+    }
 }
+
